@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="Design.css" />
+    <style>
+      ul li::marker {
+        content: "▶";
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <button class="tablinks" onclick="openContent(event, 'Students')">
+        Students
+      </button>
+      <button
+        class="tablinks"
+        onclick="openContent(event, 'Lession Plan')"
+        id="defaultOpen"
+      >
+        Lession Plan
+      </button>
+      <button class="tablinks" onclick="openContent(event, 'Setting')">
+        Setting
+      </button>
+    </div>
+
+    <div id="Students" class="tabcontent">
+      <h3>Students</h3>
+      <p>List of Students</p>
+    </div>
+
+    <div id="Lession Plan" class="tabcontent">
+      <ul>
+        <li>Videos</li>
+      </ul>
+      <div class="inputContainer">
+        <input type="text" class="input" placeholder="Insert URL here" />
+        <p>or</p>
+      </div>
+      <input type="text" class="upload" placeholder="upload" />
+    </div>
+
+    <div id="Setting" class="tabcontent">
+      <h3>Setting</h3>
+      <p>Setting</p>
+    </div>
+
+    <script>
+      function openContent(evt, contentName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(contentName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
